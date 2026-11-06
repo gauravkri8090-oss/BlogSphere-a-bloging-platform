@@ -21,3 +21,4 @@ Tailwind CSS, its CLI, the Tailwind input file, and Tailwind build scripts have 
 
 The application serves static assets from `public`, and the main EJS layout loads `/css/styles.css`.
 # BlogSphere-a-bloging-platform
+# BlogSphere-a-bloging-platform
