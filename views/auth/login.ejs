@@ -1,0 +1,98 @@
+<section class="bs-min-h-80vh bs-flex bs-items-center bs-justify-center bs-px-6 bs-py-16">
+
+    <div class="bs-w-full bs-max-w-md bs-bg-white bs-rounded-2xl bs-shadow-xl bs-p-8">
+
+        <div class="bs-text-center">
+
+            <span class="bs-inline-block bs-bg-blue-100 bs-text-blue-600 bs-px-4 bs-py-2 bs-rounded-full bs-font-semibold">
+                Welcome Back
+            </span>
+
+            <h1 class="bs-text-4xl bs-font-bold bs-mt-5">
+                Login
+            </h1>
+
+            <p class="bs-text-gray-500 bs-mt-3">
+                Sign in to continue to BlogSphere.
+            </p>
+
+        </div>
+
+        <% if (errors.email || errors.password) { %>
+        <div class="bs-mt-6 bs-bg-red-50 bs-border bs-border-red-200 bs-text-red-700 bs-rounded-xl bs-px-4 bs-py-3">
+            <%= errors.email ? errors.email.msg : errors.password.msg %>
+        </div>
+        <% } %>
+
+        <form
+            action="/login"
+            method="POST"
+            class="bs-mt-8 bs-space-y-6"
+        >
+
+            <div>
+
+                <label
+                    for="email"
+                    class="bs-block bs-mb-2 bs-font-medium"
+                >
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="<%= oldInput.email || '' %>"
+                    required
+                    class="bs-w-full bs-border bs-border-gray-300 bs-rounded-xl bs-px-4 bs-py-3 bs-focus-outline-none bs-focus-ring-2 bs-focus-ring-blue-500"
+                    placeholder="Enter your email"
+                >
+
+            </div>
+
+            <div>
+
+                <label
+                    for="password"
+                    class="bs-block bs-mb-2 bs-font-medium"
+                >
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    class="bs-w-full bs-border bs-border-gray-300 bs-rounded-xl bs-px-4 bs-py-3 bs-focus-outline-none bs-focus-ring-2 bs-focus-ring-blue-500"
+                    placeholder="Enter your password"
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="bs-w-full bs-bg-blue-600 bs-hover-bg-blue-700 bs-text-white bs-py-3 bs-rounded-xl bs-transition bs-font-semibold"
+            >
+                Login
+            </button>
+
+        </form>
+
+        <p class="bs-text-center bs-mt-8 bs-text-gray-600">
+
+            Don't have an account?
+
+            <a
+                href="/signup"
+                class="bs-text-blue-600 bs-font-semibold bs-hover-underline"
+            >
+                Sign Up
+            </a>
+
+        </p>
+
+    </div>
+
+</section>

@@ -1,0 +1,133 @@
+<section class="bs-max-w-4xl bs-mx-auto bs-px-6 bs-py-16">
+
+    <!-- Heading -->
+    <div class="bs-mb-10">
+
+        <span class="bs-inline-block bs-bg-blue-100 bs-text-blue-600 bs-px-4 bs-py-2 bs-rounded-full bs-font-semibold">
+            BlogSphere
+        </span>
+
+        <h1 class="bs-text-5xl bs-font-bold bs-mt-6">
+            <%= editing ? "Edit Blog" : "Create a New Blog" %>
+        </h1>
+
+        <p class="bs-mt-4 bs-text-gray-600 bs-text-lg">
+            <%= editing
+                ? "Update your blog and keep your readers informed."
+                : "Share your knowledge with the developer community." %>
+        </p>
+
+    </div>
+
+    <form
+        action="<%= editing ? '/host/edit-blog/' + post._id : '/host/add-blog' %>"
+        method="POST"
+        class="bs-bg-white bs-shadow-lg bs-rounded-2xl bs-p-8 bs-space-y-8"
+        enctype="multipart/form-data"
+    >
+
+        <!-- Blog Title -->
+        <div>
+
+            <label
+                for="title"
+                class="bs-block bs-text-lg bs-font-semibold bs-mb-2"
+            >
+                Blog Title
+            </label>
+
+            <input
+                type="text"
+                id="title"
+                name="title"
+                value="<%= editing ? post.title : '' %>"
+                placeholder="Enter blog title..."
+                required
+                class="bs-w-full bs-border bs-border-gray-300 bs-rounded-xl bs-px-4 bs-py-3 bs-outline-none bs-focus-ring-2 bs-focus-ring-blue-500"
+            >
+
+        </div>
+        <!-- Cover Image -->
+        <div>
+
+            <label
+                for="coverImage"
+                class="bs-block bs-text-lg bs-font-semibold bs-mb-2"
+            >
+                Cover Image
+            </label>
+
+            <input
+                type="file"
+                id="coverImage"
+                name="coverImage"
+                accept="image/*"
+                class="bs-block bs-w-full bs-text-sm bs-text-gray-600
+                    bs-border bs-border-gray-300 bs-rounded-xl
+                    bs-cursor-pointer bs-bg-gray-50
+                    bs-file-mr-5
+                    bs-file-px-5
+                    bs-file-py-3
+                    bs-file-rounded-l-xl
+                    bs-file-border-0
+                    bs-file-bg-blue-600
+                    bs-file-text-white
+                    bs-file-font-semibold
+                    bs-file-cursor-pointer
+                    bs-hover-file-bg-blue-700
+                    bs-file-transition"
+            >
+
+            <% if (editing && post.coverImage) { %>
+
+                <img
+                    src="<%= post.coverImage %>"
+                    alt="Current Cover"
+                    class="bs-mt-4 bs-w-64 bs-rounded-xl bs-shadow-md"
+                >
+
+            <% } %>
+
+        </div>
+
+        <!-- Blog Content -->
+        <div>
+
+            <label
+                for="body"
+                class="bs-block bs-text-lg bs-font-semibold bs-mb-2"
+            >
+                Blog Content
+            </label>
+
+            <textarea
+                id="body"
+                name="body"
+                rows="14"
+                placeholder="Write your blog..."
+                required
+                class="bs-w-full bs-border bs-border-gray-300 bs-rounded-xl bs-px-4 bs-py-3 bs-outline-none bs-focus-ring-2 bs-focus-ring-blue-500 bs-resize-y"
+            ><%= editing ? post.body : '' %></textarea>
+        </div>
+        <!-- Buttons -->
+        <div class="bs-flex bs-gap-4">
+
+            <button
+                type="submit"
+                class="bs-bg-blue-600 bs-hover-bg-blue-700 bs-text-white bs-px-8 bs-py-3 bs-rounded-xl bs-transition bs-font-semibold"
+            >
+                <%= editing ? "Update Blog" : "Publish Blog" %>
+            </button>
+
+            <a
+                href="/host/my-blogs"
+                class="bs-border bs-border-gray-300 bs-px-8 bs-py-3 bs-rounded-xl bs-hover-bg-gray-100 bs-transition"
+            >
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</section>

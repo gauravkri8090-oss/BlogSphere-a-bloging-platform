@@ -1,0 +1,197 @@
+<section class="bs-min-h-80vh bs-flex bs-items-center bs-justify-center bs-px-6 bs-py-16">
+
+    <div class="bs-w-full bs-max-w-lg bs-bg-white bs-rounded-2xl bs-shadow-xl bs-p-8">
+
+        <div class="bs-text-center">
+
+            <span class="bs-inline-block bs-bg-blue-100 bs-text-blue-600 bs-px-4 bs-py-2 bs-rounded-full bs-font-semibold">
+                Join BlogSphere
+            </span>
+
+            <h1 class="bs-text-4xl bs-font-bold bs-mt-5">
+                Create Account
+            </h1>
+
+            <p class="bs-text-gray-500 bs-mt-3">
+                Start writing and sharing your blogs today.
+            </p>
+
+        </div>
+
+        <form action="/signup" method="POST" class="bs-mt-8 bs-space-y-6">
+
+            <!-- Name -->
+            <div>
+
+                <label
+                    for="name"
+                    class="bs-block bs-mb-2 bs-font-medium"
+                >
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value="<%= oldInput.name || '' %>"
+                    placeholder="Enter your full name"
+                    class="bs-w-full bs-border bs-rounded-xl bs-px-4 bs-py-3 bs-focus-outline-none bs-focus-ring-2
+                    <%= errors.name ? 'bs-border-red-500 bs-focus-ring-red-500' : 'bs-border-gray-300 bs-focus-ring-blue-500' %>"
+                >
+
+                <% if(errors.name){ %>
+
+                    <p class="bs-mt-2 bs-text-sm bs-text-red-600">
+                        <%= errors.name.msg %>
+                    </p>
+
+                <% } %>
+
+            </div>
+
+            <!-- Username -->
+            <div>
+
+                <label
+                    for="username"
+                    class="bs-block bs-mb-2 bs-font-medium"
+                >
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    value="<%= oldInput.username || '' %>"
+                    placeholder="Choose a username"
+                    class="bs-w-full bs-border bs-rounded-xl bs-px-4 bs-py-3 bs-focus-outline-none bs-focus-ring-2
+                    <%= errors.username ? 'bs-border-red-500 bs-focus-ring-red-500' : 'bs-border-gray-300 bs-focus-ring-blue-500' %>"
+                >
+
+                <% if(errors.username){ %>
+
+                    <p class="bs-mt-2 bs-text-sm bs-text-red-600">
+                        <%= errors.username.msg %>
+                    </p>
+
+                <% } %>
+
+            </div>
+
+            <!-- Email -->
+            <div>
+
+                <label
+                    for="email"
+                    class="bs-block bs-mb-2 bs-font-medium"
+                >
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="<%= oldInput.email || '' %>"
+                    placeholder="Enter your email"
+                    class="bs-w-full bs-border bs-rounded-xl bs-px-4 bs-py-3 bs-focus-outline-none bs-focus-ring-2
+                    <%= errors.email ? 'bs-border-red-500 bs-focus-ring-red-500' : 'bs-border-gray-300 bs-focus-ring-blue-500' %>"
+                >
+
+                <% if(errors.email){ %>
+
+                    <p class="bs-mt-2 bs-text-sm bs-text-red-600">
+                        <%= errors.email.msg %>
+                    </p>
+
+                <% } %>
+
+            </div>
+
+            <!-- Password -->
+            <div>
+
+                <label
+                    for="password"
+                    class="bs-block bs-mb-2 bs-font-medium"
+                >
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    class="bs-w-full bs-border bs-rounded-xl bs-px-4 bs-py-3 bs-focus-outline-none bs-focus-ring-2
+                    <%= errors.password ? 'bs-border-red-500 bs-focus-ring-red-500' : 'bs-border-gray-300 bs-focus-ring-blue-500' %>"
+                >
+
+                <% if(errors.password){ %>
+
+                    <p class="bs-mt-2 bs-text-sm bs-text-red-600">
+                        <%= errors.password.msg %>
+                    </p>
+
+                <% } %>
+
+            </div>
+
+            <!-- Confirm Password -->
+            <div>
+
+                <label
+                    for="confirmPassword"
+                    class="bs-block bs-mb-2 bs-font-medium"
+                >
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm your password"
+                    class="bs-w-full bs-border bs-rounded-xl bs-px-4 bs-py-3 bs-focus-outline-none bs-focus-ring-2
+                    <%= errors.confirmPassword ? 'bs-border-red-500 bs-focus-ring-red-500' : 'bs-border-gray-300 bs-focus-ring-blue-500' %>"
+                >
+
+                <% if(errors.confirmPassword){ %>
+
+                    <p class="bs-mt-2 bs-text-sm bs-text-red-600">
+                        <%= errors.confirmPassword.msg %>
+                    </p>
+
+                <% } %>
+
+            </div>
+
+            <!-- Submit Button -->
+
+            <button
+                type="submit"
+                class="bs-w-full bs-bg-blue-600 bs-hover-bg-blue-700 bs-text-white bs-py-3 bs-rounded-xl bs-font-semibold bs-transition"
+            >
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="bs-text-center bs-mt-8 bs-text-gray-600">
+
+            Already have an account?
+
+            <a
+                href="/login"
+                class="bs-text-blue-600 bs-font-semibold bs-hover-underline"
+            >
+                Login
+            </a>
+
+        </p>
+
+    </div>
+
+</section>

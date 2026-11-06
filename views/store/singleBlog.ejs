@@ -1,0 +1,92 @@
+<section class="bs-max-w-4xl bs-mx-auto bs-px-6 bs-py-20">
+
+    <!-- Article Header -->
+
+    <div>
+
+        <span class="bs-inline-block bs-bg-blue-100 bs-text-blue-600 bs-px-4 bs-py-2 bs-rounded-full bs-font-semibold">
+            BlogSphere
+        </span>
+
+        <h1 class="bs-mt-8 bs-text-5xl bs-md-text-6xl bs-font-black bs-leading-tight">
+            <%= post.title %>
+        </h1>
+
+        <div class="bs-flex bs-flex-wrap bs-items-center bs-gap-6 bs-mt-8 bs-text-gray-500">
+
+            <span>
+                By
+                <strong class="bs-text-gray-800">
+                    <%= post.author ? post.author.name : "Unknown Author" %>
+                </strong>
+            </span>
+
+            <span>
+                <%= post.createdAt.toDateString() %>
+            </span>
+
+            <span>
+                5 min read
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- Cover Image -->
+
+    <div class="bs-mt-12">
+
+        <img
+            src="<%= post.coverImage || '/img/default-cover.webp' %>"
+            alt="<%= post.title %>"
+            class="bs-w-full bs-h-125 bs-object-cover bs-rounded-3xl"
+        >
+    </div>
+    <!-- Blog Content -->
+    <article class="bs-mt-16 bs-bg-white bs-rounded-3xl bs-shadow-lg bs-p-10 bs-leading-9 bs-text-lg bs-text-gray-700 bs-whitespace-pre-wrap">
+        <%= post.body %>
+    </article>
+    <!-- Author Card -->
+    <section class="bs-mt-16 bs-bg-gray-100 bs-rounded-3xl bs-p-8">
+        <h2 class="bs-text-2xl bs-font-bold">
+            About the Author
+        </h2>
+        <div class="bs-mt-6 bs-flex bs-items-center bs-gap-5">
+            <div class="bs-w-16 bs-h-16 bs-rounded-full bs-bg-blue-600 bs-text-white bs-flex bs-items-center bs-justify-center bs-text-2xl bs-font-bold">
+                <%= post.author ? post.author.name.charAt(0).toUpperCase() : "?" %>
+            </div>
+            <div>
+                <h3 class="bs-text-xl bs-font-semibold">
+                    <%= post.author ? post.author.name : "Unknown Author" %>
+                </h3>
+                <p class="bs-text-gray-500 bs-mt-1">
+                    @<%= post.author ? post.author.username : "unknown" %>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Navigation Buttons -->
+    <div class="bs-mt-16 bs-flex bs-flex-wrap bs-gap-5">
+        <a href="/blogs" class="bs-bg-blue-600 bs-hover-bg-blue-700 bs-text-white bs-px-8 bs-py-3 bs-rounded-xl bs-transition">
+            ← Back to Blogs
+        </a>
+        <% if(
+            isLoggedIn &&
+            user &&
+            post.author &&
+            user._id.toString() === post.author._id.toString()
+        ){ %>
+
+            <a
+                href="/host/edit-blog/<%= post._id %>"
+                class="bs-bg-yellow-500 bs-hover-bg-yellow-600 bs-text-white bs-px-8 bs-py-3 bs-rounded-xl bs-transition"
+            >
+                Edit Blog
+            </a>
+
+        <% } %>
+
+    </div>
+
+</section>

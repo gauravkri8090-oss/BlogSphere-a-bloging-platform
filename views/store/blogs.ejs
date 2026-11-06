@@ -1,0 +1,97 @@
+<section class="bs-max-w-7xl bs-mx-auto bs-px-6 bs-py-16">
+
+    <!-- Hero -->
+
+    <div class="bs-text-center bs-max-w-3xl bs-mx-auto">
+
+        <span class="bs-inline-block bs-bg-blue-100 bs-text-blue-600 bs-px-5 bs-py-2 bs-rounded-full bs-font-semibold">
+            BlogSphere
+        </span>
+
+        <h1 class="bs-text-5xl bs-font-black bs-mt-6">
+            Explore Blogs
+        </h1>
+
+        <p class="bs-mt-5 bs-text-lg bs-text-gray-600 bs-leading-8">
+            Discover articles on web development, JavaScript, Node.js,
+            Express, MongoDB, React, and much more.
+        </p>
+
+    </div>
+
+    <!-- Search -->
+
+    <form action="/blogs" method="GET" class="bs-max-w-xl bs-mx-auto bs-mt-12">
+        <div class="bs-flex bs-bg-white bs-rounded-2xl bs-shadow bs-overflow-hidden">
+            <input
+                type="text"
+                name="q"
+                value="<%= search || '' %>"
+                placeholder="Search blogs..."
+                class="bs-flex-1 bs-px-6 bs-py-4 bs-outline-none">
+            <button class="bs-bg-blue-600 bs-text-white bs-px-8 bs-hover-bg-blue-700 bs-transition">
+                Search
+            </button>
+        </div>
+    </form>
+
+    <!-- Blog Grid -->
+
+    <% if(posts.length === 0){ %>
+
+        <div class="bs-text-center bs-mt-20">
+
+            <h2 class="bs-text-3xl bs-font-bold">
+                No Blogs Found
+            </h2>
+
+            <p class="bs-mt-4 bs-text-gray-500">
+                Try another search or check back later.
+            </p>
+
+        </div>
+
+    <% } else { %>
+
+        <div class="bs-grid bs-md-grid-cols-2 bs-lg-grid-cols-3 bs-gap-8 bs-mt-16">
+
+            <% posts.forEach(post => { %>
+
+                <article
+                    class="bs-bg-white bs-rounded-3xl bs-shadow bs-hover-shadow-xl bs-transition bs-overflow-hidden"
+                >
+
+                    <!-- Cover Image -->
+
+                    <img
+                        src="<%= post.coverImage || '/img/default-cover.webp' %>"
+                        alt="<%= post.title %>"
+                        class="bs-w-full bs-h-56 bs-object-cover bs-rounded-xl"
+                    >
+                    <div class="bs-p-7">
+                        <p class="bs-text-sm bs-text-blue-600 bs-font-semibold">
+                            <% if(post.author){ %>
+                                By <%= post.author.name %>
+                            <% } else { %>
+                                BlogSphere
+                            <% } %>
+                        </p>
+                        <h2 class="bs-text-2xl bs-font-bold bs-mt-3 bs-line-clamp-2"> <%= post.title %> </h2>
+                        <p class="bs-text-gray-500 bs-mt-3 bs-line-clamp-3">
+                            <%= post.body.substring(0, 140) %>...
+                        </p>
+                        <div class="bs-flex bs-justify-between bs-items-center bs-mt-8">
+                            <span class="bs-text-sm bs-text-gray-400">
+                                <%= post.createdAt.toDateString() %>
+                            </span>
+
+                            <a href="/blogs/<%= post._id %>" class="bs-text-blue-600 bs-font-semibold bs-hover-underline">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            <% }) %>
+        </div>
+    <% } %>
+</section>

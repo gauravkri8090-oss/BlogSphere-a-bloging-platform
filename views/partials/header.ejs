@@ -1,0 +1,154 @@
+<header class="bs-sticky bs-top-0 bs-z-50 bs-bg-white-90 bs-backdrop-blur-md bs-border-b bs-border-gray-200">
+
+    <nav class="bs-max-w-7xl bs-mx-auto bs-h-18 bs-px-6 bs-flex bs-items-center bs-justify-between">
+
+        <!-- Logo -->
+        <a href="/" class="bs-flex bs-items-center bs-gap-1">
+
+            <img
+                src="/img/logo.png"
+                alt="BlogSphere Logo"
+                class="bs-w-11 bs-h-11 bs-object-contain"
+            >
+
+            <span class="bs-text-3xl bs-font-black bs-tracking-tight">
+                Blog<span class="bs-text-blue-600">Sphere</span>
+            </span>
+
+        </a>
+
+        <!-- Navigation -->
+        <ul class="bs-hidden bs-lg-flex bs-items-center bs-gap-1">
+
+            <li>
+
+                <a
+                    href="/"
+                    class="bs-px-4 bs-py-2 bs-rounded-lg bs-transition
+                    <%= currentPage === 'home'
+                        ? 'bs-bg-blue-600 bs-text-white'
+                        : 'bs-text-gray-700 bs-hover-bg-gray-100 bs-hover-text-blue-600' %>"
+                >
+                    Home
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    href="/blogs"
+                    class="bs-px-4 bs-py-2 bs-rounded-lg bs-transition
+                    <%= currentPage === 'blogs'
+                        ? 'bs-bg-blue-600 bs-text-white'
+                        : 'bs-text-gray-700 bs-hover-bg-gray-100 bs-hover-text-blue-600' %>"
+                >
+                    Blogs
+                </a>
+
+            </li>
+
+            <% if (isLoggedIn) { %>
+
+                <li>
+
+                    <a
+                        href="/host/my-blogs"
+                        class="bs-px-4 bs-py-2 bs-rounded-lg bs-transition
+                        <%= currentPage === 'myBlogs'
+                            ? 'bs-bg-blue-600 bs-text-white'
+                            : 'bs-text-gray-700 bs-hover-bg-gray-100 bs-hover-text-blue-600' %>"
+                    >
+                        My Blogs
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="/host/add-blog"
+                        class="bs-px-4 bs-py-2 bs-rounded-lg bs-transition
+                        <%= currentPage === 'addBlog'
+                            ? 'bs-bg-blue-600 bs-text-white'
+                            : 'bs-text-gray-700 bs-hover-bg-gray-100 bs-hover-text-blue-600' %>"
+                    >
+                        Add Blog
+                    </a>
+
+                </li>
+
+            <% } %>
+
+        </ul>
+
+        <!-- Right Side -->
+
+        <div class="bs-flex bs-items-center bs-gap-2">
+
+            <!-- Search -->
+
+            <form
+                action="/search"
+                method="GET"
+                class="bs-hidden bs-xl-flex bs-items-center bs-bg-gray-100 bs-rounded-full bs-px-4 bs-py-2"
+            >
+
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Search..."
+                    class="bs-bg-transparent bs-outline-none bs-w-40"
+                >
+
+                <button type="submit">
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="bs-w-5 bs-h-5 bs-text-gray-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M21 21l-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0"
+                        />
+
+                    </svg>
+
+                </button>
+
+            </form>
+
+            <% if (!isLoggedIn) { %>
+
+                <a
+                    href="/login"
+                    class="bs-bg-blue-600 bs-hover-bg-blue-700 bs-text-white bs-px-5 bs-py-2 bs-rounded-xl bs-transition"
+                >
+                    Login
+                </a>
+
+            <% } else { %>
+
+                <form action="/logout" method="POST">
+
+                    <button
+                        class="bs-bg-red-500 bs-hover-bg-red-600 bs-text-white bs-px-5 bs-py-2 bs-rounded-xl bs-transition"
+                    >
+                        Logout
+                    </button>
+
+                </form>
+
+            <% } %>
+
+        </div>
+
+    </nav>
+
+</header>

@@ -1,0 +1,191 @@
+<section class="bs-max-w-7xl bs-mx-auto bs-px-6 bs-py-20">
+
+    <!-- Hero -->
+
+    <div class="bs-text-center bs-max-w-4xl bs-mx-auto">
+
+        <span class="bs-inline-block bs-bg-blue-100 bs-text-blue-600 bs-px-5 bs-py-2 bs-rounded-full bs-font-semibold">
+            About BlogSphere
+        </span>
+
+        <h1 class="bs-text-5xl bs-md-text-6xl bs-font-black bs-mt-8">
+            A Place Where Ideas Become Blogs
+        </h1>
+
+        <p class="bs-mt-8 bs-text-xl bs-text-gray-600 bs-leading-9">
+
+            BlogSphere is a modern blogging platform built for developers,
+            students, and tech enthusiasts to share knowledge, document their
+            learning journey, and inspire others through writing.
+
+        </p>
+
+    </div>
+
+    <!-- Features -->
+
+    <div class="bs-grid bs-md-grid-cols-3 bs-gap-8 bs-mt-20">
+
+        <div class="bs-bg-white bs-rounded-2xl bs-shadow-lg bs-p-8">
+
+            <div class="bs-text-4xl bs-mb-5">✍️</div>
+
+            <h2 class="bs-text-2xl bs-font-bold">
+                Write
+            </h2>
+
+            <p class="bs-mt-4 bs-text-gray-600 bs-leading-7">
+
+                Create beautiful blogs covering programming,
+                web development, tutorials, and personal experiences.
+
+            </p>
+
+        </div>
+
+        <div class="bs-bg-white bs-rounded-2xl bs-shadow-lg bs-p-8">
+
+            <div class="bs-text-4xl bs-mb-5">📖</div>
+
+            <h2 class="bs-text-2xl bs-font-bold">
+                Learn
+            </h2>
+
+            <p class="bs-mt-4 bs-text-gray-600 bs-leading-7">
+
+                Discover practical articles, coding guides,
+                and development tips from the community.
+
+            </p>
+
+        </div>
+
+        <div class="bs-bg-white bs-rounded-2xl bs-shadow-lg bs-p-8">
+
+            <div class="bs-text-4xl bs-mb-5">🚀</div>
+
+            <h2 class="bs-text-2xl bs-font-bold">
+                Grow
+            </h2>
+
+            <p class="bs-mt-4 bs-text-gray-600 bs-leading-7">
+
+                Improve your skills by reading,
+                writing, and sharing knowledge with other developers.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Our Mission -->
+
+    <div class="bs-mt-24 bs-grid bs-lg-grid-cols-2 bs-gap-16 bs-items-center">
+
+        <div>
+
+            <h2 class="bs-text-4xl bs-font-bold">
+                Our Mission
+            </h2>
+
+            <p class="bs-mt-6 bs-text-gray-600 bs-leading-8 bs-text-lg">
+
+                We believe that the best way to learn is to build and share.
+                BlogSphere encourages developers to document their projects,
+                explain concepts in simple words, and contribute to a growing
+                library of practical programming knowledge.
+
+            </p>
+
+            <p class="bs-mt-6 bs-text-gray-600 bs-leading-8 bs-text-lg">
+
+                Whether you're a beginner learning JavaScript or an experienced
+                backend developer exploring Node.js and MongoDB, BlogSphere is
+                designed to support your learning journey.
+
+            </p>
+
+        </div>
+
+        <div class="bs-bg-linear-to-br bs-from-blue-600 bs-to-indigo-700 bs-rounded-3xl bs-p-10 bs-text-white">
+
+            <h3 class="bs-text-3xl bs-font-bold">
+                BlogSphere at a Glance
+            </h3>
+
+            <div class="bs-mt-8 bs-space-y-5">
+
+                <div class="bs-flex bs-justify-between bs-border-b bs-border-white-20 bs-pb-3">
+                    <span>Platform</span>
+                    <span>Developer Blogging</span>
+                </div>
+
+                <div class="bs-flex bs-justify-between bs-border-b bs-border-white-20 bs-pb-3">
+                    <span>Backend</span>
+                    <span>Node.js & Express</span>
+                </div>
+
+                <div class="bs-flex bs-justify-between bs-border-b bs-border-white-20 bs-pb-3">
+                    <span>Database</span>
+                    <span>MongoDB</span>
+                </div>
+
+                <div class="bs-flex bs-justify-between bs-border-b bs-border-white-20 bs-pb-3">
+                    <span>Frontend</span>
+                    <span>EJS & Custom CSS</span>
+                </div>
+
+                <div class="bs-flex bs-justify-between">
+                    <span>Purpose</span>
+                    <span>Learn • Build • Share</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+
+    <div class="bs-mt-24 bs-bg-blue-600 bs-rounded-3xl bs-text-white bs-text-center bs-py-16 bs-px-8">
+
+        <h2 class="bs-text-4xl bs-font-bold">
+            Ready to Start Writing?
+        </h2>
+
+        <p class="bs-mt-5 bs-text-lg bs-text-blue-100">
+
+            Join BlogSphere today and share your knowledge with developers
+            around the world.
+
+        </p>
+
+        <div class="bs-mt-10 bs-flex bs-justify-center bs-gap-5">
+
+            <% if(!isLoggedIn){ %>
+
+                <a
+                    href="/signup"
+                    class="bs-bg-white bs-text-blue-600 bs-px-8 bs-py-3 bs-rounded-xl bs-font-semibold bs-hover-bg-gray-100 bs-transition"
+                >
+                    Create Account
+                </a>
+
+            <% } else { %>
+
+                <a
+                    href="/host/add-blog"
+                    class="bs-bg-white bs-text-blue-600 bs-px-8 bs-py-3 bs-rounded-xl bs-font-semibold bs-hover-bg-gray-100 bs-transition"
+                >
+                    Write Your Blog
+                </a>
+
+            <% } %>
+
+        </div>
+
+    </div>
+
+</section>

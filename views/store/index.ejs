@@ -1,0 +1,87 @@
+<section class="bs-max-w-7xl bs-mx-auto bs-px-6 bs-py-16">
+
+    <div class="bs-grid bs-lg-grid-cols-2 bs-gap-20 bs-items-center">
+
+        <div>
+
+            <span class="bs-inline-block bs-bg-blue-100 bs-text-blue-600 bs-px-4 bs-py-2 bs-rounded-full bs-font-semibold">
+                Welcome to BlogSphere
+            </span>
+
+            <h1 class="bs-mt-6 bs-text-6xl bs-font-black bs-leading-tight">
+                Write.<br>
+                Learn.<br>
+                Inspire.
+            </h1>
+
+            <p class="bs-mt-8 bs-text-xl bs-text-gray-600 bs-leading-9">
+                Discover tutorials, programming guides, developer stories,
+                and full-stack projects built with modern technologies.
+            </p>
+
+            <div class="bs-mt-10 bs-flex bs-gap-5">
+                <a href="/blogs"
+                   class="bs-bg-blue-600 bs-text-white bs-px-7 bs-py-4 bs-rounded-xl bs-hover-bg-blue-700">
+                    Explore Blogs
+                </a>
+
+                <a href="/about"
+                   class="bs-border bs-border-gray-300 bs-px-7 bs-py-4 bs-rounded-xl bs-hover-bg-gray-100">
+                    About BlogSphere
+                </a>
+            </div>
+
+        </div>
+
+        <img
+            src="/img/hero.png"
+            alt="Hero Image">
+    </div>
+</section>
+
+<section class="bs-max-w-7xl bs-mx-auto bs-px-6 bs-pb-24">
+    <div class="bs-flex bs-justify-between bs-items-center bs-mb-10">
+        <h2 class="bs-text-4xl bs-font-bold">Latest Posts</h2>
+        <a href="/blogs"
+           class="bs-text-blue-600 bs-hover-underline">
+            View All →
+        </a>
+    </div>
+    <div class="bs-space-y-6">
+        <% data.forEach(post => { %>
+        <a href="/blogs/<%= post._id %>" class="bs-block bs-bg-white bs-rounded-2xl bs-shadow-sm bs-hover-shadow-xl bs-transition bs-p-8">
+            <div class="bs-flex bs-justify-between bs-items-start">
+                <div>
+                    <h3 class="bs-text-2xl bs-font-bold bs-hover-text-blue-600 bs-transition">
+                        <%= post.title %>
+                    </h3>
+                    <p class="bs-text-gray-600 bs-mt-3">
+                        <%= post.body.substring(0,150) %>...
+                    </p>
+                    <div class="bs-flex bs-gap-6 bs-mt-5 bs-text-sm bs-text-gray-500">
+                        <span>
+                            <%= post.createdAt.toDateString() %>
+                        </span>
+                        <span>
+                            5 min read
+                        </span>
+                    </div>
+                </div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="bs-w-6 bs-h-6 bs-text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 12h14m-6-6 6 6-6 6"/>
+                </svg>
+            </div>
+        </a>
+        <% }) %>
+    </div>
+</section>
