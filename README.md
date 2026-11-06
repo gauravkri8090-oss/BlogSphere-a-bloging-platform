@@ -54,28 +54,41 @@ A full-stack blogging platform where users can create, publish, manage, and expl
 
 ```text
 BlogSphere/
-│
+├── app.js
+├── package.json
+├── .env.example
 ├── public/
 │   ├── css/
 │   │   └── styles.css
-│   ├── js/
-│   └── images/
-│
+│   ├── img/
+│   └── js/
 ├── server/
-│
+│   ├── config/
+│   │   ├── cloudinary.js
+│   │   └── db.js
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── hostController.js
+│   │   └── storeController.js
+│   ├── middleware/
+│   │   ├── auth.js
+│   │   ├── owner.js
+│   │   └── upload.js
+│   ├── models/
+│   │   ├── post.js
+│   │   └── user.js
+│   └── routes/
+│       ├── authRouter.js
+│       ├── hostRouter.js
+│       └── storeRouter.js
 ├── utils/
-│
-├── views/
-│   ├── layouts/
-│   ├── partials/
-│   └── ...
-│
-├── app.js
-├── package.json
-├── package-lock.json
-├── .env.example
-├── .gitignore
-└── README.md
+│   └── path.js
+└── views/
+    ├── auth/
+    ├── host/
+    ├── layouts/
+    ├── partials/
+    └── store/
 ```
 
 ## ⚙️ Installation & Setup
